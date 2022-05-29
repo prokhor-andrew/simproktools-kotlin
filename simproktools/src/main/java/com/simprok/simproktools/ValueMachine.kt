@@ -21,7 +21,7 @@ class ValueMachine<T> : ChildMachine<T, T?> {
     /**
      * `ChildMachine` interface method
      */
-    override suspend fun process(input: T?, callback: Handler<T?>) {
+    override fun process(input: T?, callback: Handler<T?>) {
         callback(input)
     }
 

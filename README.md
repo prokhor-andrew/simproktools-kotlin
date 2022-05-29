@@ -7,7 +7,7 @@
 Add this in your project's gradle file:
 
 ```groovy
-implementation 'com.github.simprok-dev:simproktools-kotlin:1.1.3'
+implementation 'com.github.simprok-dev:simproktools-kotlin:1.1.4'
 ```
 
 and this in your settings.gradle file:
@@ -18,6 +18,31 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 ```
+
+## BasicMachine
+
+A machine with an injectable processing behavior.
+
+```Kotlin
+
+val machine = BasicMachine<Input, Output>(dispatcher = Main /* or IO */) { input, callback ->
+    // any processing logic
+}
+```
+
+## ProcessMachine
+
+A machine with an injectable processing behavior over the injected object.
+
+```Kotlin
+
+val obj: ObjectType = ...
+val machine = ProcessMachine.create<ObjectType, Input, Output>(obj) { obj, input, callback ->
+    // any processing logic
+}
+```
+
+Works on the main thread.
 
 ## JustMachine
 
@@ -114,4 +139,14 @@ val result: Machine<String, Unit> = machine.scan(true) { state, event ->
     // ScanOutput<Unit, Boolean>.Event(Unit) // when output has to be sent to the parent machine.
     ...
 }
+```
+
+## ConnectableMachine
+
+A machine for dynamic creation and connection of other machines.
+
+
+```Kotlin
+
+_ =
 ```

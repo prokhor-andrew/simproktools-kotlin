@@ -20,7 +20,7 @@ class NeverMachine<Input, Output> : ChildMachine<Input, Output> {
     /**
      * `ChildMachine` interface method
      */
-    override suspend fun process(input: Input?, callback: Handler<Output>) {
+    override fun process(input: Input?, callback: Handler<Output>) {
         // do nothing, as we never should call the callback
     }
 

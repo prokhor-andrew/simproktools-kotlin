@@ -20,7 +20,7 @@ class SingleMachine<Input, Output>(private val value: Output) : ChildMachine<Inp
     /**
      * `ChildMachine` interface method
      */
-    override suspend fun process(input: Input?, callback: Handler<Output>) {
+    override fun process(input: Input?, callback: Handler<Output>) {
         if (input == null) {
             callback(value)
         }

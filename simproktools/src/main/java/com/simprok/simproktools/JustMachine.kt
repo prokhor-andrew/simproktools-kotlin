@@ -24,7 +24,7 @@ class JustMachine<Input, Output>(
     /**
      * `ChildMachine` interface method
      */
-    override suspend fun process(input: Input?, callback: Handler<Output>) {
+    override fun process(input: Input?, callback: Handler<Output>) {
         callback(value)
     }
 
