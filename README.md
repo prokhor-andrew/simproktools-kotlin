@@ -147,6 +147,11 @@ A machine for dynamic creation and connection of other machines.
 
 
 ```Kotlin
-
-_ =
+val _ = ConnectableMachine<Input, Output, BasicConnection<Input, Output> /* or any class that conforms to Connection*/>(
+    BasicConnection.create(/* machines for connection go here */)
+) { connection, input -> 
+    // Return
+    // ConnectionType<Input, Output, BasicConnection<Input, Output>>.Reduce(BasicConnection<Input, Output>.create(/* machines for connection go here */)) // when we want to connect new array of machines
+    // ConnectionType<Input, Output, BasicConnection<Input, Output>>.Inward() // when we want to pass input to the connected machines
+}
 ```
